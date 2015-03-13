@@ -10,8 +10,10 @@ game.PlayerEntity = me.Entity.extend({
                     return(new me.Rect(0, 0, 64, 64)).toPolygon();
                 }
             }]);
+        
+        me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
 
-        this.body.setVelocity(5, 20);
+        this.body.setVelocity(7, 20);
 
         this.renderable.addAnimation("idle", [78]);
         this.renderable.addAnimation("walk", [117, 118, 119, 120, 121, 122, 123, 124, 125], 80);
