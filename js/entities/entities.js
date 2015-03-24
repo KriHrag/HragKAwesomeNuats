@@ -53,7 +53,7 @@ game.PlayerEntity = me.Entity.extend({
                 console.log("attack2");
                 //sets the current animation to attack and once that is over
                 //goes back to the idle animation
-                this.renderable.setCurrentAnimation("attack");
+                this.renderable.setCurrentAnimation("attack", "idle");
                 //makes it so that the next time we start the sequence we begin
                 //from the first animation, not wherever we left off when we
                 //switched to another animation
@@ -71,8 +71,8 @@ game.PlayerEntity = me.Entity.extend({
 
         me.collision.check(this, true, this.collideHandler.bind(this), true);
 
-        if (me.input.isKeyPressed("up")) {
-
+        if (me.input.isKeyPressed("up") && !this.body.jumping && !this.body.falling) {
+            this.body.jumping = true;
             this.body.vel.y -= this.body.accel.y * me.timer.tick;
 
         }
@@ -104,7 +104,7 @@ game.PlayerEntity = me.Entity.extend({
             if(this.renderable.isCurrentAnimation("attack") && this.now-this.lastHit >= 1000){
                 console.log("tower Hit");
                 this.lastHit = this.now;
-                response.b.looseHealth();
+                response.b.loseHealth();
             }
         }
     }
