@@ -5,10 +5,11 @@ game.resources = [
 	 * {name: "example", type:"image", src: "data/img/example.png"},
 	 */
          {name: "background-tiles", type:"image", src: "data/img/background-tiles.png"},
-         {name: "meta-tiles", type:"image", src: "data/img/background-tiles.png"},
+         {name: "meta-tiles", type:"image", src: "data/img/meta-tiles.png"},
          {name: "item-spritesheet", type:"image", src: "data/img/item-spritesheet.png"},
          {name: "player", type:"image", src: "data/img/wizard.png"},
          {name: "tower", type:"image", src: "data/img/tower_round.svg.png"},
+         {name: "creep1", type:"image", src: "data/img/brainmonster.png"},
 
 	/* Atlases 
 	 * @example
