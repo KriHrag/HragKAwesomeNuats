@@ -10,8 +10,17 @@ game.PlayScreen = me.ScreenObject.extend({
 
         this.resetPlayer(0, 420);
 
-        var gamemanager = me.pool.pull("GameManager", 500, 0, {});
-        me.game.world.addChild(gamemanager, 0);
+        var gameTimerManager = me.pool.pull("GameTimerManager", 500, 0, {});
+        me.game.world.addChild(gameTimerManager, 0);
+        
+        var heroDeathManager = me.pool.pull("HeroDeathManager", 500, 0, {});
+        me.game.world.addChild(heroDeathManager, 0);
+        
+        var experienceManager = me.pool.pull("ExperienceManager", 500, 0, {});
+        me.game.world.addChild(experienceManager, 0);
+
+        game.data.minimap = me.pool.pull("minimap", 10, 10, {});
+        me.game.world.addChild(game.data.minimap, 30);
 
         me.input.bindKey(me.input.KEY.RIGHT, "right");
         me.input.bindKey(me.input.KEY.LEFT, "left");
