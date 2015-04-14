@@ -70,8 +70,7 @@ game.ExperienceManager = Object.extend({
         
         this.gameover = true;
         me.save.exp = game.data.exp;
-        //for testing purpooses only
-        me.save.exp2 = 4;
+        
     }
 
 });
