@@ -56,7 +56,7 @@ me.game.world.addChild(new (me.Renderable.extend({
                 game.data.exp4 = me.save.exp4;
                 
              me.input.releasePointerEvent('pointerdown', this);
-             me.state.change(me.state.PLAY);
+             me.state.change(me.state.SPENDEXP);
              
             }
         })));
