@@ -34,8 +34,8 @@
         <script type="text/javascript" src="js/entities/GameManager.js"></script>
         <script type="text/javascript" src="js/entities/HUD.js"></script>
         <script type="text/javascript" src="js/screens/title.js"></script>
-        <script type="text/javascript" src="js/screens/MiniMap.js"></script>
-        <script type="text/javascript" src="js/screens/MiniPlayerLocation.js"></script>
+        <script type="text/javascript" src="js/entities/MiniMap.js"></script>
+        <script type="text/javascript" src="js/entities/MiniPlayerLocation.js"></script>
         <script type="text/javascript" src="js/screens/play.js"></script>
         <script type="text/javascript" src="js/screens/spendExp.js"></script>
         <!-- /build -->

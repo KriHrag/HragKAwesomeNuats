@@ -11,7 +11,12 @@ game.SpendExp = me.ScreenObject.extend({
         me.input.bindKey(me.input.KEY.F4, "F4");
         me.input.bindKey(me.input.KEY.F5, "F5");
         me.input.bindKey(me.input.KEY.F6, "F6");
-        var exp1cost= ((game.data.exp1 + 1) * 10)
+        var exp1cost = ((game.data.exp1 + 1) * 10)
+         var exp2cost = ((game.data.exp1 + 1) * 10)
+          var exp3cost = ((game.data.exp1 + 1) * 10)
+           var exp4cost = ((game.data.exp1 + 1) * 10)
+            var exp5cost = ((game.data.exp1 + 1) * 10)
+             var exp6cost = ((game.data.exp1 + 1) * 10)
         
         me.game.world.addChild(new (me.Renderable.extend({
             
@@ -26,10 +31,10 @@ game.SpendExp = me.ScreenObject.extend({
                 this.font.draw(renderer.getContext(), "Current EXP: " + game.data.exp.toString(), this.pos.x + 100, this.pos.y + 50);
                 this.font.draw(renderer.getContext(), "F1: INCREASE GOLD PRODUCTION CURRENT LEVEL" + game.data.exp1.toString() + " COST: " + exp1cost, this.pos.x, this.pos.y + 100);
                 this.font.draw(renderer.getContext(), "F2: ADD STARTING GOLD" + game.data.exp1.toString() + " COST: " + exp2cost, this.pos.x, this.pos.y + 150);
-                this.font.draw(renderer.getContext(), "F3: INCREASE ATTACK DAMAGE" + game.data.exp1.toString() + " COST: " + exp3cost, this.pos.x, this.pos.y + 200);
-                this.font.draw(renderer.getContext(), "F4: INCREASE HEALTH" + game.data.exp1.toString() + " COST: " + exp4cost, this.pos.x, this.pos.y + 250);
-                this.font.draw(renderer.getContext(), "F5: INCREASE SPEED" + game.data.exp1.toString() + " COST: " + exp5cost, this.pos.x, this.pos.y + 300);
-                this.font.draw(renderer.getContext(), "F6: INCREASE DURABILITY" + game.data.exp1.toString() + " COST: " + exp6cost, this.pos.x, this.pos.y + 350);
+                this.font.draw(renderer.getContext(), "F3: INCREASE ATTACK DAMAGE" + game.data.exp2.toString() + " COST: " + exp3cost, this.pos.x, this.pos.y + 200);
+                this.font.draw(renderer.getContext(), "F4: INCREASE HEALTH" + game.data.exp3.toString() + " COST: " + exp4cost, this.pos.x, this.pos.y + 250);
+                this.font.draw(renderer.getContext(), "F5: INCREASE SPEED" + game.data.exp5.toString() + " COST: " + exp5cost, this.pos.x, this.pos.y + 300);
+                this.font.draw(renderer.getContext(), "F6: INCREASE DURABILITY" + game.data.exp6.toString() + " COST: " + exp6cost, this.pos.x, this.pos.y + 350);
             }
         })));
         

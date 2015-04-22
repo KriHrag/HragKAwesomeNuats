@@ -34,6 +34,8 @@ var game = {
         exp2: 0,
         exp3: 0,
         exp4: 0,
+        exp5: 0,
+        exp6: 0,
         win: "",
         pausePos: "",
         buyscreen: "",
