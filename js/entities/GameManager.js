@@ -18,7 +18,7 @@ game.GameTimerManager = Object.extend({
     },
     goldTimerCheck: function() {
         if (Math.round(this.now / 1000) % 20 === 0 && (this.now - this.lastCreep >= 1000)) {
-            game.data.gold += 1;
+            game.data.gold += (game.data.exp1+1);
             console.log("Current gold: " + game.data.gold);
         }
     },
@@ -73,4 +73,87 @@ game.ExperienceManager = Object.extend({
         
     }
 
+});
+
+game.SpendGold = Object.extend({
+   init: function(x, y, settings){
+       this.now = new Date().getTime();
+        this.lastBuy = new Date().getTime();
+        this.paused = false;
+        this.alwaysUpdate = true;
+        this.updateWhenPaused = true;
+        this.buying = false;
+   },
+    
+    update: function(){
+        this.now = new Date().getTime();
+        if(me.input.isKeyyPresseed("buy") && this.now-this.lastBuy >=1000){
+            this.lastBuy = this.now;
+            if(!this.buying){
+                this.startBuying();
+            }else{
+                thhis.stopBuying();
+            }
+        }
+        
+        return true;
+    },
+    
+    startBuying: function(){
+        this.buyiing = true;
+        me.state.pause(me.state.PLAY);
+        game.data.pausePos = me.game.viewport.localToWorld(0, 0);
+        game.data.buyscreen = new me.Sprite(game.data.pausePos.x, game.data.pausePos.y, me.loader.getImage('gold-screen'));
+        game.data.buyscreen.updateWhenPaused = true;
+        game.data.buyscreen.setOpacity(0.8);
+        me.game.world.addChild(game.data.buyscreen, 34);
+        game.data.player.body.setVelocity(0, 0);
+        me.state.pause(me.state.PLAY);
+        me.input.bindKey(me.input.KEY.F1, "F1", true);
+        me.input.bindKey(me.input.KEY.F2, "F2", true);
+        me.input.bindKey(me.input.KEY.F3, "F3", true);
+        me.input.bindKey(me.input.KEY.F4, "F4", true);
+        me.input.bindKey(me.input.KEY.F5, "F5", true);
+        me.input.bindKey(me.input.KEY.F6, "F6", true);
+        this.setBuyText();
+    },
+    
+    seetBuyText: function(){
+        game.data.buytext = new (me.Renderable.extend({
+            
+            init: function() {
+                
+                this._super(me.Renderable, 'init', [game.data.pausePos.x, game.data.pausePos.y, 300, 50]);
+                
+                this.font = new me.Font("Comic", 26, "yellow");
+                this.updateWhenPaused = true;
+                this.alwaysUpdate = true;
+            },
+            draw: function(renderer) {
+                this.font.draw(renderer.getContext(), "PRESS F1->F6 TO BUY, B TO EXIT" + game.data.gold, this.pos.x, this.pos.y);
+                this.font.draw(renderer.getContext(), "Skill 1: Increase Damage ", + game.data.exp1 + " Cost: " + ((game.data.exp1+1)*10) this.pos.x, this.pos.y);
+                this.font.draw(renderer.getContext(), "Skill 2: Run Faster ",  + game.datta.exp1 + " Cost: " + ((game.data.exp1+1)*10)this.pos.x, this.pos.y);
+                this.font.draw(renderer.getContext(), "Skill 3: Increase Health ", + game.datta.exp1 + " Cost: " + ((game.data.exp1+1)*10) this.pos.x, this.pos.y);
+                this.font.draw(renderer.getContext(), "Q Ability", + game.datta.exp1 + " Cost: " + ((game.data.exp1+1)*10) this.pos.x, this.pos.y);
+                this.font.draw(renderer.getContext(), "W Ability", + game.datta.exp1 + " Cost: " + ((game.data.exp1+1)*10)this.pos.x, this.pos.y);
+                this.font.draw(renderer.getContext(), "E Ability",  + game.datta.exp1 + " Cost: " + ((game.data.exp1+1)*10)this.pos.x, this.pos.y);
+            }
+        }));
+        me.game.world.addChild(game.data.buytext, 35)
+    },
+    
+    stopBuying: function(){
+        this.buyiing = false;
+        me.state.resume(me.state.PLAY);
+        game.data.player.body.setVelocity(game.data.playerMoveSpeed, 20);
+        me.game.world.removeChild(game.data.buyscreen);
+        me.input.unbindKey(me.input.KEY.F1, "F1", true);
+        me.input.unbindKey(me.input.KEY.F2, "F2", true);
+        me.input.unbindKey(me.input.KEY.F3, "F3", true);
+        me.input.unbindKey(me.input.KEY.F4, "F4", true);
+        me.input.unbindKey(me.input.KEY.F5, "F5", true);
+        me.input.unbindKey(me.input.KEY.F6, "F6", true);
+        me.game.world.removeChild(game.data.buytext);
+    }
+    
 });
