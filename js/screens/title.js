@@ -23,12 +23,8 @@ game.TitleScreen = me.ScreenObject.extend({
             
             newGame: function(){
              me.input.releasePointerEvent('pointerdown', this);
-             me.save.remove('exp');
-             me.save.remove('exp1');
-             me.save.remove('exp2');
-             me.save.remove('exp3');
-             me.save.remove('exp4');
-             me.state.change(me.state.PLAY);
+             me.input.releasePointerEvent('pointerdown', game.data.option2);
+             me.state.change(me.state.NEW);
              
             }
         })));
@@ -49,14 +45,9 @@ me.game.world.addChild(new (me.Renderable.extend({
             },
             
             newGame: function(){
-                game.data.exp = me.save.exp;
-                game.data.exp1 = me.save.exp1;
-                game.data.exp2 = me.save.exp2;
-                game.data.exp3 = me.save.exp3;
-                game.data.exp4 = me.save.exp4;
                 
              me.input.releasePointerEvent('pointerdown', this);
-             me.state.change(me.state.SPENDEXP);
+             me.state.change(me.state.LOAD);
              
             }
         })));

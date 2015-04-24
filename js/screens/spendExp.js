@@ -15,8 +15,6 @@ game.SpendExp = me.ScreenObject.extend({
          var exp2cost = ((game.data.exp1 + 1) * 10)
           var exp3cost = ((game.data.exp1 + 1) * 10)
            var exp4cost = ((game.data.exp1 + 1) * 10)
-            var exp5cost = ((game.data.exp1 + 1) * 10)
-             var exp6cost = ((game.data.exp1 + 1) * 10)
         
         me.game.world.addChild(new (me.Renderable.extend({
             
@@ -33,8 +31,8 @@ game.SpendExp = me.ScreenObject.extend({
                 this.font.draw(renderer.getContext(), "F2: ADD STARTING GOLD" + game.data.exp1.toString() + " COST: " + exp2cost, this.pos.x, this.pos.y + 150);
                 this.font.draw(renderer.getContext(), "F3: INCREASE ATTACK DAMAGE" + game.data.exp2.toString() + " COST: " + exp3cost, this.pos.x, this.pos.y + 200);
                 this.font.draw(renderer.getContext(), "F4: INCREASE HEALTH" + game.data.exp3.toString() + " COST: " + exp4cost, this.pos.x, this.pos.y + 250);
-                this.font.draw(renderer.getContext(), "F5: INCREASE SPEED" + game.data.exp5.toString() + " COST: " + exp5cost, this.pos.x, this.pos.y + 300);
-                this.font.draw(renderer.getContext(), "F6: INCREASE DURABILITY" + game.data.exp6.toString() + " COST: " + exp6cost, this.pos.x, this.pos.y + 350);
+                //this.font.draw(renderer.getContext(), "F5: INCREASE SPEED" + game.data.exp5.toString() + " COST: " + exp5cost, this.pos.x, this.pos.y + 300);
+                //this.font.draw(renderer.getContext(), "F6: INCREASE DURABILITY" + game.data.exp6.toString() + " COST: " + exp6cost, this.pos.x, this.pos.y + 350);
             }
         })));
         
@@ -54,9 +52,7 @@ game.SpendExp = me.ScreenObject.extend({
             }else if(action === "F4"){
                 
             }else if(action === "F5"){
-                
-            }else if(action === "F6"){
-                me.state,change(me.state.PLAY);
+                 me.state,change(me.state.PLAY);
             }
         });
         

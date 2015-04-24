@@ -39,8 +39,9 @@ var game = {
         win: "",
         pausePos: "",
         buyscreen: "",
-        buttext: ""
-   },
+        buytext: "",
+        miniPlayer: ""
+    },
     // Run on page load.
     "onload": function() {
         // Initialize the video.
@@ -55,11 +56,11 @@ var game = {
                 me.plugin.register.defer(this, debugPanel, "debug");
             });
         }
-        
-        me.save.add({exp: 0, exp1: 0, exp2: 0, exp3: 0, exp4: 0});
-        
+
         me.state.SPENDEXP = 112;
-        
+        me.state.LOAD = 113;
+        me.state.NEW = 114;
+
         // Initialize the audio.
         me.audio.init("mp3,ogg");
 
@@ -83,11 +84,13 @@ var game = {
         me.pool.register("ExperienceManager", game.ExperienceManager);
         me.pool.register("minimap", game.MiniMap, true);
         me.pool.register("miniplayer", game.MiniPlayerLocation, true);
-        me.pool.register("SpeendGold", game.SpendGold);
+        me.pool.register("SpendGold", game.SpendGold);
 
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
         me.state.set(me.state.SPENDEXP, new game.SpendExp());
+        me.state.set(me.state.LOAD, new game.LoadProfile());
+        me.state.set(me.state.NEW, new game.NewProfile());
 
         // Start the game.
         me.state.change(me.state.MENU);
