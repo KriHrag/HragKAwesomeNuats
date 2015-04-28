@@ -1,7 +1,6 @@
 <?php
  require_once(__DIR__ . "/../model/config.php");
 
- $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
  $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
  $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
  
@@ -13,10 +12,18 @@ $query = $_SESSION["connection"]->query("INSERT INTO users SET "
         . "email = '$email',"
         . "username = '$username',"
         . "password = '$hashedPassword',"
-        . "salt = '$salt'");
+        . "salt = '$salt', "
+        . "exp = 0, "
+        . "exp1 = 0,"
+        . "exp2 = 0,"
+        . "exp3 = 0,"
+        . "exp4 = 0");
  
+$_session["name"] = $username;
+
 if($query) {
-    echo "Suuccefully created user: $username";
+    //Need this for Ajax on index.php
+    echo "true";
 }
 else{
     echo "<p>" . $_SESSION["connection"]->error . "</p>";
