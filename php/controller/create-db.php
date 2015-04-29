@@ -15,13 +15,3 @@ $query = $_SESSION["connection"]->query("CREATE TABLE users ("
         . "exp4 int(4),"
         . "PRIMARY KEY (id))");
 
-if ($query) {
-   
-}
-
-//echoed out my text
-else {
-    echo "<p  style='color: transparent;>" . $_SESSION["connection"]->error . "</p>";
-}
-
-//echoed out my text

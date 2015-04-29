@@ -9,12 +9,12 @@ game.resources = [
     {name: "player", type: "image", src: "data/img/wizard.png"},
     {name: "tower", type: "image", src: "data/img/tower_round.svg.png"},
     {name: "creep1", type: "image", src: "data/img/brainmonster.png"},
-    {name: "title-screen", type: "image", src: "data/img/wizard_wars-triangle.jpg"},
-    {name: "minmap4", type: "image", src: "data/img/minmap4.png"},
+    {name: "title-screen", type: "image", src: "data/img/title.png"},
+    {name: "minmap4", type: "image", src: "data/img/minimap3.png"},
     {name: "exp-screen", type: "image", src: "data/img/loadpic.png"},
-    {name: "gold-screen", type: "image", src: "data/img/newgame-bicubic.jpg"},
-    {name: "load-screen", type: "image", src: "data/img/loadgame-bell.jpg"},
-    {name: "new-screen", type: "image", src: "data/img/newgame-bell.jpg"},
+    {name: "gold-screen", type: "image", src: "data/img/spend.png"},
+    {name: "load-screen", type: "image", src: "data/img/loadpic.png"},
+    {name: "new-screen", type: "image", src: "data/img/newpic.png"},
     /* Atlases 
      * @example
      * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},
