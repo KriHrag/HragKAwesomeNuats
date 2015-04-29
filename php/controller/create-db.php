@@ -16,7 +16,7 @@ $query = $_SESSION["connection"]->query("CREATE TABLE users ("
         . "PRIMARY KEY (id))");
 
 if ($query) {
-    echo "<p style='color: transparent;'>Succefully created table: users</p>";
+   
 }
 
 //echoed out my text
